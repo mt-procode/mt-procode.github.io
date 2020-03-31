@@ -6,26 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？ | Hexo</title>
+  <title>Cpp 指针和引用的区别 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如何找出int数组中只出现一次的两个元素？ 问题描述在一个int类型的数组中除有两个元素各出现了一次外，其它元素都出现了两次，最好能保证最好的时空效率。  算法一回溯算法： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#include &lt;iostream&gt;usi">
+  <meta name="description" content="C++指针和引用的区别   指针、引用程序实践源代码 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081#include &lt;iostrea">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？">
-<meta property="og:url" content="http://yoursite.com/2020/03/31/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BAint%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%83%E7%B4%A0%EF%BC%88%E5%85%B6%E5%AE%83%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E9%83%BD%E5%87%BA%E7%8E%B0%E4%BA%86%E4%B8%A4%E6%AC%A1%EF%BC%89%EF%BC%9F/index.html">
+<meta property="og:title" content="Cpp 指针和引用的区别">
+<meta property="og:url" content="http://yoursite.com/2020/03/31/Cpp-%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="如何找出int数组中只出现一次的两个元素？ 问题描述在一个int类型的数组中除有两个元素各出现了一次外，其它元素都出现了两次，最好能保证最好的时空效率。  算法一回溯算法： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#include &lt;iostream&gt;usi">
+<meta property="og:description" content="C++指针和引用的区别   指针、引用程序实践源代码 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081#include &lt;iostrea">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200330140155338.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200330140725722.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200330140858375.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200330144347453.png">
-<meta property="article:published_time" content="2020-03-31T05:04:39.000Z">
-<meta property="article:modified_time" content="2020-03-31T05:05:44.459Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200330155413637.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020033015550671.png">
+<meta property="article:published_time" content="2020-03-31T05:13:03.000Z">
+<meta property="article:modified_time" content="2020-03-31T05:14:00.041Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="语法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200330140155338.png">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200330155413637.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -161,47 +159,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Cpp-指针和引用的区别" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？
+      Cpp 指针和引用的区别
     </h1>
   
 
         
-        <a href="/2020/03/31/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BAint%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%83%E7%B4%A0%EF%BC%88%E5%85%B6%E5%AE%83%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E9%83%BD%E5%87%BA%E7%8E%B0%E4%BA%86%E4%B8%A4%E6%AC%A1%EF%BC%89%EF%BC%9F/" class="archive-article-date">
-  	<time datetime="2020-03-31T05:04:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
+        <a href="/2020/03/31/Cpp-%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
+  	<time datetime="2020-03-31T05:13:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="如何找出int数组中只出现一次的两个元素？"><a href="#如何找出int数组中只出现一次的两个元素？" class="headerlink" title="如何找出int数组中只出现一次的两个元素？"></a>如何找出int数组中只出现一次的两个元素？</h1><p><br><br></p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在一个int类型的数组中除有两个元素各出现了一次外，其它元素都出现了两次，最好能保证最好的时空效率。</p>
-<hr>
-<h3 id="算法一"><a href="#算法一" class="headerlink" title="算法一"></a><em>算法一</em></h3><p>回溯算法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    int len &#x3D; 0;</span><br><span class="line">    &#x2F;&#x2F;接受用户输入的数组长度</span><br><span class="line">    cout &lt;&lt; &quot;please input the array length: &quot; ;</span><br><span class="line">    cin &gt;&gt; len;</span><br><span class="line"></span><br><span class="line">    int a[len];</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;接受用户输入的数组元素</span><br><span class="line">    cout &lt;&lt; &quot;please the array&#39;s elements:&quot; &lt;&lt; endl;</span><br><span class="line">    for(int i &#x3D; 0;i &lt; len;i++)&#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    int temp &#x3D; 0;&#x2F;&#x2F;正在检测的数组元素下标</span><br><span class="line">    int i &#x3D; 0;&#x2F;&#x2F;记录待检测数组元素下标</span><br><span class="line"></span><br><span class="line">    while(temp &lt; len)&#123;</span><br><span class="line">		&#x2F;*如果temp元素与i相等并且temp不等于i（因为初始值中temp &#x3D; i）</span><br><span class="line">		或者temp元素已经检测过*&#x2F;</span><br><span class="line">        if((a[temp] &#x3D;&#x3D; a[i] &amp;&amp; temp !&#x3D; i) || a[temp] &#x3D;&#x3D; -1)&#123;</span><br><span class="line">            &#x2F;*标记已经检测过的元素，这个标记是int数组中被限定输入的值</span><br><span class="line">            读者可以根据需要指定，这里为了方便说明采用‘-1’标记*&#x2F;</span><br><span class="line">            a[temp] &#x3D; -1;</span><br><span class="line">            a[i] &#x3D; -1;</span><br><span class="line">            i &#x3D; ++temp;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;i大于数组长度后，表示正在检测的元素只出现了一次</span><br><span class="line">        else if (i &gt;&#x3D; len)&#123;</span><br><span class="line">            cout &lt;&lt; a[temp] &lt;&lt; &quot; &quot;;</span><br><span class="line">            i &#x3D; ++temp;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;不满足上述分支条件，i指向下一个元素</span><br><span class="line">        else</span><br><span class="line">            i ++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p><strong>测试结果：</strong><br><br><br><em>test1:</em><br><img src="https://img-blog.csdnimg.cn/20200330140155338.png" alt="result1"><br><em>test2:</em><br><img src="https://img-blog.csdnimg.cn/20200330140725722.png" alt="result2"><br><em>test3:</em><br><img src="https://img-blog.csdnimg.cn/20200330140858375.png" alt="result3"></p>
-<hr>
-<p><strong>评价：</strong></p>
-<p>空间复杂度为O(1)，时间复杂度上大于 O(n)小于等于O(n^2),<br>空间上达到要求，时间上未达到要求，需要改进算法。</p>
-<hr>
-<h3 id="算法二"><a href="#算法二" class="headerlink" title="算法二"></a><em>算法二</em></h3><p>位运算算法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F;初始化待检测数组</span><br><span class="line">    int arr[8] &#x3D; &#123;2,5,5,2,3,6,4,6&#125;;</span><br><span class="line"></span><br><span class="line">    int num &#x3D; 0;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;找出数组中只出现过一次的元素的异或值</span><br><span class="line">    for(int i &#x3D; 0;i &lt; 8;i ++)&#123;</span><br><span class="line">        num &#x3D; num ^ arr[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;num:&quot; &lt;&lt; num &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    int temp &#x3D; 1;</span><br><span class="line">	&#x2F;*从最低位开始找出两个元素第一次不同的位，即num中从最低位第一次出现1的地方*&#x2F;</span><br><span class="line">    while((temp &amp; num) &#x3D;&#x3D; 0)&#123;</span><br><span class="line">        temp &lt;&lt;&#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;temp:&quot; &lt;&lt; temp &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    int num1 &#x3D; 0;</span><br><span class="line">    int num2 &#x3D; 0;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;用按位与运算将这两个数分开，分别按位异或，（一个数自己与自己异或为0）</span><br><span class="line">    for(int i &#x3D; 0;i &lt; 8;i ++)&#123;</span><br><span class="line">        if((temp &amp; arr[i]) &#x3D;&#x3D; 0)</span><br><span class="line">            num1 ^&#x3D; arr[i];</span><br><span class="line">        else</span><br><span class="line">            num2 ^&#x3D; arr[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;num1:&quot; &lt;&lt; num1 &lt;&lt;endl;</span><br><span class="line">    cout &lt;&lt; &quot;num2:&quot; &lt;&lt; num2 &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>测试结果：</strong></p>
+        <h1 id="C-指针和引用的区别"><a href="#C-指针和引用的区别" class="headerlink" title="C++指针和引用的区别"></a>C++指针和引用的区别</h1><br>
 <br>
 
-<p><em>test1:</em><br><img src="https://img-blog.csdnimg.cn/20200330144347453.png" alt="result1"><br>读者可以自行设计测试样例进行测试</p>
-<p><strong>评价：</strong><br>由于只遍历了一遍数组的元素，故时间复杂度为o(n)<br>空间复杂度为o(1),符合题目要求</p>
-<p><br><br><br>—-end—</p>
+<h2 id="指针、引用程序实践"><a href="#指针、引用程序实践" class="headerlink" title="指针、引用程序实践"></a>指针、引用程序实践</h2><p><strong>源代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void maopapOrder(int arr[])&#123;</span><br><span class="line"></span><br><span class="line">        for(int i&#x3D;0;i&lt;2;i++)&#123;</span><br><span class="line">        for(int j&#x3D;0;j&lt;2-i;j++)&#123;</span><br><span class="line">            if(arr[j]&gt;arr[j+1])&#123;</span><br><span class="line">                int temp &#x3D; arr[j];</span><br><span class="line">                arr[j] &#x3D; arr[j+1];</span><br><span class="line">                arr[j+1] &#x3D; temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void orderMethod1(int a,int b,int c)&#123;</span><br><span class="line">    int arr[3] &#x3D; &#123;a,b,c&#125;;</span><br><span class="line">    maopapOrder(arr);</span><br><span class="line">    a &#x3D; arr[0];</span><br><span class="line">    b &#x3D; arr[1];</span><br><span class="line">    c &#x3D; arr[2];</span><br><span class="line">    cout &lt;&lt; &quot;inside int type : &quot; &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt;  &quot; &quot; &lt;&lt; c &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void orderMethod2(int* a,int* b,int* c)&#123;</span><br><span class="line">    int arr[3] &#x3D; &#123;*a,*b,*c&#125;;</span><br><span class="line">    maopapOrder(arr);</span><br><span class="line">    *a &#x3D; arr[0];</span><br><span class="line">    *b &#x3D; arr[1];</span><br><span class="line">    *c &#x3D; arr[2];</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;inside int* type : &quot; &lt;&lt; *a &lt;&lt; &quot; &quot; &lt;&lt; *b &lt;&lt;  &quot; &quot; &lt;&lt; *c &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void orderMethod3(int&amp; x,int&amp; y,int&amp; z)&#123;</span><br><span class="line">    int arr[3] &#x3D; &#123;x,y,z&#125;;</span><br><span class="line">    maopapOrder(arr);</span><br><span class="line">    x &#x3D; arr[0];</span><br><span class="line">    y &#x3D; arr[1];</span><br><span class="line">    z &#x3D; arr[2];</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;inside int&amp; type : &quot; &lt;&lt; x &lt;&lt; &quot; &quot; &lt;&lt; y &lt;&lt;  &quot; &quot; &lt;&lt; z &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a &#x3D; 0;</span><br><span class="line">    int b &#x3D; 0;</span><br><span class="line">    int c &#x3D; 0;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;please input three integer values:&quot; &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line"></span><br><span class="line">    orderMethod1(a,b,c);</span><br><span class="line">    cout &lt;&lt; &quot;outside int type : &quot; &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b&lt;&lt;  &quot; &quot; &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;-----------------------------------------&quot; &lt;&lt; endl;</span><br><span class="line">&#x2F;*</span><br><span class="line">    orderMethod2(&amp;a,&amp;b,&amp;c);</span><br><span class="line">    cout &lt;&lt; &quot;outside int* type : &quot; &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b&lt;&lt;  &quot; &quot; &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;-----------------------------------------&quot; &lt;&lt; endl;</span><br><span class="line">*&#x2F;</span><br><span class="line">    orderMethod3(a,b,c);</span><br><span class="line">    cout &lt;&lt; &quot;outside int&amp; type : &quot; &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b&lt;&lt;  &quot; &quot; &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;-----------------------------------------&quot; &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<p><em>指针：</em><br><img src="https://img-blog.csdnimg.cn/20200330155413637.png" alt="指针"></p>
+<p><em>引用：</em></p>
+<p><img src="https://img-blog.csdnimg.cn/2020033015550671.png" alt="引用"></p>
+<h2 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h2><p><strong>从定义上讲</strong><br>指针是一个变量，变量中保存的是某个对象的地址，指向内存中的某个存储单元。<br>引用实际上与它所绑定的变量共用一块内存空间，是它绑定的那个变量的一个别名。<br><strong>从使用规则上讲</strong><br>指针可以有多级指针，而引用只能有一级<br>指针可以不初始化，指向NULL，而引用在使用时必须初始化。<br><strong>从作为函数参数传递上</strong><br>值得注意的是，二者皆可达到通过函数中的操作修改原变量值的效果，只是：<br>指针作为函数参数时，要求变量将地址传入，对指针的指向值的修改就是对原变量值的修改。<br>引用作为函数参数时，可以理解为就是将原变量传入（因为二者共用一块内存空间），对引用的修改当然也可以等效到引用绑定的原变量上。</p>
+<p>但是，<strong><em>引用本身不需要开辟空间，所以在运行的时空效率上更好。</em></strong></p>
 
       
 
@@ -240,7 +229,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语法</a>
         		</li>
       		
 		</ul>
@@ -296,7 +285,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/31/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BAint%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%83%E7%B4%A0%EF%BC%88%E5%85%B6%E5%AE%83%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E9%83%BD%E5%87%BA%E7%8E%B0%E4%BA%86%E4%B8%A4%E6%AC%A1%EF%BC%89%EF%BC%9F/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/31/Cpp-%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -310,18 +299,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/31/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/03/31/%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E5%B0%8F%E7%A8%8B%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          约瑟夫环问题
+          学生成绩管理小程序
         
       </div>
     </a>
   
   
-    <a href="/2020/03/31/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8%E4%B9%8B%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">蒙特卡洛算法应用之计算圆周率</div>
+    <a href="/2020/03/31/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">约瑟夫环问题</div>
       <i class="icon-circle-right"></i>
     </a>
   

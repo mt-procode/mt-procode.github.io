@@ -152,6 +152,299 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-学生成绩管理小程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/31/%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E5%B0%8F%E7%A8%8B%E5%BA%8F/">学生成绩管理小程序</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/31/%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2020-03-31T05:14:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="学生成绩管理"><a href="#学生成绩管理" class="headerlink" title="学生成绩管理"></a>学生成绩管理</h1><p><br><br></p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>1、 可以存储学生的姓名、学号、性别和 A、B、C 三<br>门课程的成绩；<br>2、 能够对所有学生的姓名、学号、性别和三门课程的成绩进<br>行显示；<br>3、 能够根据学生三门课程的总成绩对学生的记录进行排序并<br>输出；<br>4、 能够输出每位有不及格课程的学生的学号、姓名和不及格<br>课程的名字和成绩；</p>
+<hr>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p><strong>输入:</strong><br>用户输入要录入的学生人数<br>用户输入要录入的学生信息（姓名、学号、性别和A、B、C课程成绩）<br>用户选择相应功能的输入</p>
+<p><strong>输出:</strong><br>输出所有学生的所有信息<br>输出按三门课程总成绩降序排序后的所有学生的所有信息<br>输出每位有不及格课程的学生的学号、姓名和不及格课程的名字和成绩；</p>
+<p><strong>主要处理过程：</strong><br>根据用户输入建立链表存储学生信息<br>按照三门课程总成绩降序排序并输出排序后的结果<br>判断每名学生是否有课程不及格并输出判断结果为true的    学生的学号、姓名和不及格课程的名字和成绩</p>
+<hr>
+<h2 id="流程设计"><a href="#流程设计" class="headerlink" title="流程设计"></a>流程设计</h2><p><img src="https://img-blog.csdnimg.cn/20200330213958909.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="process"></p>
+<h2 id="模块介绍"><a href="#模块介绍" class="headerlink" title="模块介绍"></a>模块介绍</h2><p><strong>链表创建模块：</strong><br>采用尾插发创建单向链表封装成函数<br>creatLink需要传入节点个数n，返回有n个    节点的链表的头指针，完成存储结构的创建</p>
+<p><strong>排序模块：</strong><br>封装成函数lowerOrder<br>需要传入链表的头指针，对该链表进行降序排序    后，调用输出函数getMessage输出排序后的所有    学生信息</p>
+<p><strong>输出模块：</strong><br>封装成函数getMessage<br>需要传入链表的头指针，输出该链表所有节点的    出指针域外的所有信息</p>
+<p><strong>输出不及格学生模块：</strong><br>封装成函数failStuMessage<br>需要传入学生信息链表的头指针，    输出不及格学生的学号，姓名和不    及格课程的名字、成绩</p>
+<hr>
+<h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;new&gt;</span><br><span class="line">#include&lt;conio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">enum Gender &#123;Male,Female&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;初始化学生的信息（模拟用户输入情形）</span><br><span class="line">&#x2F;&#x2F;定义学生学号数组,这里只是不用重复输入，在结构体数组中读取即可（测试用）读者可将其改为接受用户输入</span><br><span class="line">char stuNo[5][20] &#x3D; &#123;</span><br><span class="line">    &quot;2018117001&quot;,</span><br><span class="line">    &quot;2018117002&quot;,</span><br><span class="line">    &quot;2018117003&quot;,</span><br><span class="line">    &quot;2018117004&quot;,</span><br><span class="line">    &quot;2018117005&quot;,</span><br><span class="line">    &#125;;</span><br><span class="line">&#x2F;&#x2F;定义学生姓名数组</span><br><span class="line">char stuName[5][20] &#x3D; &#123;</span><br><span class="line">    &quot;Tom&quot;,</span><br><span class="line">    &quot;Amy&quot;,</span><br><span class="line">    &quot;Lily&quot;,</span><br><span class="line">    &quot;Jack&quot;,</span><br><span class="line">    &quot;Rose&quot;,</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F;定义学生性别数组</span><br><span class="line">Gender stuSex[5] &#x3D; &#123;Male,Female,Female,Male,Female&#125;;</span><br><span class="line">&#x2F;&#x2F;定义学生三门课成绩数组</span><br><span class="line">double stuA[5] &#x3D; &#123;45.54,59.5,68.5,75.5,85.0&#125;;</span><br><span class="line">double stuB[5] &#x3D; &#123;55.5,87.6,45.26,98.5,35.4&#125;;</span><br><span class="line">double stuC[5] &#x3D; &#123;78.6,58.65,95.5,46.2,76.55&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">typedef struct Node&#123;</span><br><span class="line">    char no[20]; &#x2F;&#x2F;学号</span><br><span class="line">    char name[20];&#x2F;&#x2F;姓名</span><br><span class="line">    Gender sex;&#x2F;&#x2F;性别</span><br><span class="line">    double scoreA;&#x2F;&#x2F;三门课成绩</span><br><span class="line">    double scoreB;</span><br><span class="line">    double scoreC;</span><br><span class="line">    struct Node* next;</span><br><span class="line">&#125;node,*link;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;创建单链表</span><br><span class="line">link createLink()&#123;</span><br><span class="line">    &#x2F;&#x2F;创建头节点</span><br><span class="line">    link h &#x3D; new node;</span><br><span class="line">    &#x2F;&#x2F;用尾指针r指向头结点</span><br><span class="line">    h -&gt;next &#x3D; NULL;</span><br><span class="line">    link r &#x3D; h;</span><br><span class="line">&#x2F;&#x2F;尾插法</span><br><span class="line">    for(int i&#x3D;0;i&lt;5;i++)&#123;</span><br><span class="line">        link n &#x3D; new node;</span><br><span class="line">        n -&gt;next &#x3D; NULL;</span><br><span class="line">        strcpy(n-&gt;no,stuNo[i]);</span><br><span class="line">        strcpy(n-&gt;name,stuName[i]);</span><br><span class="line">        n-&gt;sex &#x3D; stuSex[i];</span><br><span class="line">        n-&gt;scoreA &#x3D; stuA[i];</span><br><span class="line">        n-&gt;scoreB &#x3D; stuB[i];</span><br><span class="line">        n-&gt;scoreC &#x3D; stuC[i];</span><br><span class="line">        r -&gt;next &#x3D; n;</span><br><span class="line">        r &#x3D; n;</span><br><span class="line">    &#125;</span><br><span class="line">    return h;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;显示所有学生信息</span><br><span class="line">void getMessage(link L)&#123;</span><br><span class="line">    link p &#x3D; L-&gt;next;</span><br><span class="line">    cout &lt;&lt; &quot;学号\t\t姓名\t性别\tA\tB\tC&quot; &lt;&lt; endl;</span><br><span class="line">    while(p)&#123;</span><br><span class="line">        cout &lt;&lt; p-&gt;no &lt;&lt; &quot;\t&quot; &lt;&lt; p-&gt;name &lt;&lt; &quot;\t&quot; ;</span><br><span class="line">        if(p-&gt;sex &#x3D;&#x3D; 0)</span><br><span class="line">            cout &lt;&lt; &quot;Male&quot;;</span><br><span class="line">        else</span><br><span class="line">            cout &lt;&lt; &quot;Female&quot;;</span><br><span class="line">        cout&lt;&lt; &quot;\t&quot; &lt;&lt; p-&gt;scoreA&lt;&lt;&quot;\t&quot; &lt;&lt;p-&gt;scoreB&lt;&lt; &quot;\t&quot; &lt;&lt; p-&gt;scoreC&lt;&lt;endl;</span><br><span class="line">        p &#x3D; p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    char answer;</span><br><span class="line">    cout &lt;&lt; &quot;pressing any key to continue: &quot;;</span><br><span class="line">    answer &#x3D; getch();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;总成绩降序排序并输出排序后学生的信息</span><br><span class="line">void lowerOrder(link L)&#123;</span><br><span class="line">    link p &#x3D; L;</span><br><span class="line">    &#x2F;&#x2F;这里使用选择排序法进行排序</span><br><span class="line">    &#x2F;&#x2F;区别是，这里的p，q，m始终指向应该指向元素的前一个元素，方便交换两个节点的位置</span><br><span class="line">    while(p-&gt;next)&#123;</span><br><span class="line">        link m &#x3D; p;</span><br><span class="line">        link q &#x3D; p-&gt;next;</span><br><span class="line">        while(q-&gt;next)&#123;</span><br><span class="line">            if((q-&gt;next-&gt;scoreA + q-&gt;next-&gt;scoreB + q-&gt;next-&gt;scoreC) &gt; (m-&gt;next-&gt;scoreA + m-&gt;next-&gt;scoreB + m-&gt;next-&gt;scoreC))</span><br><span class="line">                m &#x3D; q;</span><br><span class="line">                q &#x3D; q-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">		&#x2F;&#x2F;以下交换节点指针域的顺序不可改变，否则会进入死循环</span><br><span class="line">        link temp;</span><br><span class="line">        temp &#x3D; p-&gt;next;</span><br><span class="line">        p-&gt;next &#x3D; m-&gt;next;</span><br><span class="line">        m-&gt;next &#x3D; temp;</span><br><span class="line"></span><br><span class="line">        temp &#x3D; p-&gt;next-&gt;next;</span><br><span class="line">        p-&gt;next-&gt;next &#x3D; m-&gt;next-&gt;next;</span><br><span class="line">        m-&gt;next-&gt;next &#x3D; temp;</span><br><span class="line"></span><br><span class="line">        p &#x3D; p-&gt;next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getMessage(L);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void failStuMessage(link L)&#123;</span><br><span class="line">    link p &#x3D; L-&gt;next;</span><br><span class="line">    &#x2F;&#x2F;这里大量使用选择控制语句实现函数功能，读者可以采用更为简单的方法</span><br><span class="line">    while(p)&#123;</span><br><span class="line">        if(p-&gt;scoreA &lt; 60)&#123;</span><br><span class="line">            if(p-&gt;scoreB &lt; 60)&#123;</span><br><span class="line">                if(p-&gt;scoreC &lt; 60)&#123;</span><br><span class="line">                    cout &lt;&lt;p-&gt;no &lt;&lt; &quot;\t&quot; &lt;&lt; p-&gt;name &lt;&lt; &quot;\tA:&quot; &lt;&lt; p-&gt;scoreA</span><br><span class="line">                    &lt;&lt; &quot;\tB:&quot; &lt;&lt; p-&gt;scoreB &lt;&lt; &quot;\tC:&quot; &lt;&lt;p-&gt;scoreC &lt;&lt;endl;</span><br><span class="line">                &#125;</span><br><span class="line">                else&#123;</span><br><span class="line">                    cout &lt;&lt;p-&gt;no &lt;&lt; &quot;\t&quot; &lt;&lt; p-&gt;name &lt;&lt; &quot;\tA:&quot; &lt;&lt; p-&gt;scoreA</span><br><span class="line">                    &lt;&lt; &quot;\tB:&quot; &lt;&lt; p-&gt;scoreB &lt;&lt;endl;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                    if(p-&gt;scoreC &lt; 60)</span><br><span class="line">                    cout &lt;&lt;p-&gt;no &lt;&lt; &quot;\t&quot; &lt;&lt; p-&gt;name &lt;&lt; &quot;\tA:&quot; &lt;&lt; p-&gt;scoreA &lt;&lt;&quot;\tC:&quot; &lt;&lt; p-&gt;scoreC &lt;&lt;endl;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            if(p-&gt;scoreB&lt;60)&#123;</span><br><span class="line">                if(p-&gt;scoreC&lt;60)&#123;</span><br><span class="line">                    cout &lt;&lt;p-&gt;no &lt;&lt; &quot;\t&quot; &lt;&lt; p-&gt;name &lt;&lt; &quot;\tB:&quot; &lt;&lt; p-&gt;scoreB &lt;&lt; &quot;\tC:&quot; &lt;&lt;p-&gt;scoreC &lt;&lt;endl;</span><br><span class="line">                &#125;</span><br><span class="line">                else&#123;</span><br><span class="line">                    cout &lt;&lt;p-&gt;no &lt;&lt; &quot;\t&quot; &lt;&lt; p-&gt;name &lt;&lt; &quot;\tB:&quot; &lt;&lt; p-&gt;scoreB &lt;&lt;endl;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                if(p-&gt;scoreC&lt;60)&#123;</span><br><span class="line">                    cout &lt;&lt;p-&gt;no &lt;&lt; &quot;\t&quot; &lt;&lt; p-&gt;name &lt;&lt; &quot;\tC:&quot; &lt;&lt; p-&gt;scoreC &lt;&lt;endl;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        p &#x3D; p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    char answer;</span><br><span class="line">    cout &lt;&lt; &quot;pressing any key to continue: &quot;;</span><br><span class="line">    answer &#x3D; getch();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; &quot;welcome to use the system!&quot; &lt;&lt;endl;</span><br><span class="line">    cout &lt;&lt; &quot;pressing any keys to continue &quot;;</span><br><span class="line">    char ch;</span><br><span class="line">    ch &#x3D; getch();</span><br><span class="line">    system(&quot;cls&quot;);</span><br><span class="line">&#x2F;&#x2F;程序控制语句</span><br><span class="line">    do&#123;</span><br><span class="line">             link L &#x3D; createLink();</span><br><span class="line">            cout &lt;&lt; &quot;A: Output all of the messages of students &quot;&lt;&lt;</span><br><span class="line">            endl &lt;&lt; &quot;B:Output Low the order of which total score of three courses&quot;&lt;&lt;</span><br><span class="line">            endl &lt;&lt; &quot;C:Output all of the failure students &quot;&lt;&lt;</span><br><span class="line">            endl &lt;&lt; &quot;D:exit the system&quot; &lt;&lt;</span><br><span class="line">            endl &lt;&lt; &quot;please select:&quot;;</span><br><span class="line"></span><br><span class="line">            ch &#x3D; getch();</span><br><span class="line">            system(&quot;cls&quot;);</span><br><span class="line">            switch(ch)&#123;</span><br><span class="line">                case &#39;A&#39;:getMessage(L);break;</span><br><span class="line">                case &#39;B&#39;:lowerOrder(L);break;</span><br><span class="line">                case &#39;C&#39;:failStuMessage(L);break;</span><br><span class="line">                default:break;</span><br><span class="line">            &#125;</span><br><span class="line">            system(&quot;cls&quot;);</span><br><span class="line">    &#125;while(ch !&#x3D; &#39;D&#39;);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;Thanks to use,goodbye!&quot;;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h2><p><strong>Feature A：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20200330214912314.png" alt="A"></p>
+<p><strong>Feature B：</strong><br><img src="https://img-blog.csdnimg.cn/20200330214923338.png" alt="B"><br><strong>Feature C:</strong><br><img src="https://img-blog.csdnimg.cn/2020033021493271.png" alt="C"><br><strong>Feature D:</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20200330214941225.png" alt="D"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/31/%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E5%B0%8F%E7%A8%8B%E5%BA%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Cpp-指针和引用的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/31/Cpp-%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB/">Cpp 指针和引用的区别</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/31/Cpp-%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
+  	<time datetime="2020-03-31T05:13:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="C-指针和引用的区别"><a href="#C-指针和引用的区别" class="headerlink" title="C++指针和引用的区别"></a>C++指针和引用的区别</h1><br>
+<br>
+
+<h2 id="指针、引用程序实践"><a href="#指针、引用程序实践" class="headerlink" title="指针、引用程序实践"></a>指针、引用程序实践</h2><p><strong>源代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void maopapOrder(int arr[])&#123;</span><br><span class="line"></span><br><span class="line">        for(int i&#x3D;0;i&lt;2;i++)&#123;</span><br><span class="line">        for(int j&#x3D;0;j&lt;2-i;j++)&#123;</span><br><span class="line">            if(arr[j]&gt;arr[j+1])&#123;</span><br><span class="line">                int temp &#x3D; arr[j];</span><br><span class="line">                arr[j] &#x3D; arr[j+1];</span><br><span class="line">                arr[j+1] &#x3D; temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void orderMethod1(int a,int b,int c)&#123;</span><br><span class="line">    int arr[3] &#x3D; &#123;a,b,c&#125;;</span><br><span class="line">    maopapOrder(arr);</span><br><span class="line">    a &#x3D; arr[0];</span><br><span class="line">    b &#x3D; arr[1];</span><br><span class="line">    c &#x3D; arr[2];</span><br><span class="line">    cout &lt;&lt; &quot;inside int type : &quot; &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt;  &quot; &quot; &lt;&lt; c &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void orderMethod2(int* a,int* b,int* c)&#123;</span><br><span class="line">    int arr[3] &#x3D; &#123;*a,*b,*c&#125;;</span><br><span class="line">    maopapOrder(arr);</span><br><span class="line">    *a &#x3D; arr[0];</span><br><span class="line">    *b &#x3D; arr[1];</span><br><span class="line">    *c &#x3D; arr[2];</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;inside int* type : &quot; &lt;&lt; *a &lt;&lt; &quot; &quot; &lt;&lt; *b &lt;&lt;  &quot; &quot; &lt;&lt; *c &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void orderMethod3(int&amp; x,int&amp; y,int&amp; z)&#123;</span><br><span class="line">    int arr[3] &#x3D; &#123;x,y,z&#125;;</span><br><span class="line">    maopapOrder(arr);</span><br><span class="line">    x &#x3D; arr[0];</span><br><span class="line">    y &#x3D; arr[1];</span><br><span class="line">    z &#x3D; arr[2];</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;inside int&amp; type : &quot; &lt;&lt; x &lt;&lt; &quot; &quot; &lt;&lt; y &lt;&lt;  &quot; &quot; &lt;&lt; z &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a &#x3D; 0;</span><br><span class="line">    int b &#x3D; 0;</span><br><span class="line">    int c &#x3D; 0;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;please input three integer values:&quot; &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line"></span><br><span class="line">    orderMethod1(a,b,c);</span><br><span class="line">    cout &lt;&lt; &quot;outside int type : &quot; &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b&lt;&lt;  &quot; &quot; &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;-----------------------------------------&quot; &lt;&lt; endl;</span><br><span class="line">&#x2F;*</span><br><span class="line">    orderMethod2(&amp;a,&amp;b,&amp;c);</span><br><span class="line">    cout &lt;&lt; &quot;outside int* type : &quot; &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b&lt;&lt;  &quot; &quot; &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;-----------------------------------------&quot; &lt;&lt; endl;</span><br><span class="line">*&#x2F;</span><br><span class="line">    orderMethod3(a,b,c);</span><br><span class="line">    cout &lt;&lt; &quot;outside int&amp; type : &quot; &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b&lt;&lt;  &quot; &quot; &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;-----------------------------------------&quot; &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<p><em>指针：</em><br><img src="https://img-blog.csdnimg.cn/20200330155413637.png" alt="指针"></p>
+<p><em>引用：</em></p>
+<p><img src="https://img-blog.csdnimg.cn/2020033015550671.png" alt="引用"></p>
+<h2 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h2><p><strong>从定义上讲</strong><br>指针是一个变量，变量中保存的是某个对象的地址，指向内存中的某个存储单元。<br>引用实际上与它所绑定的变量共用一块内存空间，是它绑定的那个变量的一个别名。<br><strong>从使用规则上讲</strong><br>指针可以有多级指针，而引用只能有一级<br>指针可以不初始化，指向NULL，而引用在使用时必须初始化。<br><strong>从作为函数参数传递上</strong><br>值得注意的是，二者皆可达到通过函数中的操作修改原变量值的效果，只是：<br>指针作为函数参数时，要求变量将地址传入，对指针的指向值的修改就是对原变量值的修改。<br>引用作为函数参数时，可以理解为就是将原变量传入（因为二者共用一块内存空间），对引用的修改当然也可以等效到引用绑定的原变量上。</p>
+<p>但是，<strong><em>引用本身不需要开辟空间，所以在运行的时空效率上更好。</em></strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/31/Cpp-%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-约瑟夫环问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/31/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/">约瑟夫环问题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/31/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-03-31T05:07:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="约瑟夫环问题"><a href="#约瑟夫环问题" class="headerlink" title="约瑟夫环问题"></a>约瑟夫环问题</h1><p><br><br></p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>N个人在一起做游戏，他们制定了一下规则：<br>1、首先，所有参加游戏的人按顺序编号为1、2、3…N； 2、接下来每个人心里产生一个数字，这个数字称为序号为 N的人的密码P； 3、所有参加游戏的人按照编号站成一个圈，为游戏设置初始密码K，从编<br>号为 1的人这里开始报数，报到 K的人退出队伍，然后将自己心中的密码 K2说出<br>来，由下一个人继续从 1开始报数，报到 K2的人退出队伍，以此类推；<br>4、当只剩下一个人时，游戏结束。<br>在用户输入了人数N、每个人的密码P和初始<br>密码K的情况下，自动完成上面的游戏过程，输出先后离开队伍的人的序号序列，最后输出剩下的人的编号</p>
+<hr>
+<h3 id="采用数组实现"><a href="#采用数组实现" class="headerlink" title="采用数组实现"></a>采用数组实现</h3><br>
+
+<h4 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h4><p><strong>输入：</strong><br>人数N（规定最大人数为100）<br>每个人的密码key<br>初始密码K</p>
+<p><strong>输出：</strong><br>先后离去的人的编号numNo<br>最后剩下的人的编号numNo</p>
+<p><strong>处理过程：</strong><br>  提示并存储用户输入的人的总数N<br>  提示并存储用户输入的初始密码K<br>  提示并存储用户输入的每一个人的密码key<br>  遍历用户存储的人的密码的同时计数器自增<br>  满足条件时进行相关操作，输出离开的人的编号<br>  循环退出后输出最后剩下的人的编号<br>  退出程序</p>
+<hr>
+<h4 id="流程设计"><a href="#流程设计" class="headerlink" title="流程设计"></a>流程设计</h4><br>
+
+<p><img src="https://img-blog.csdnimg.cn/20200330151730884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="process"></p>
+<hr>
+<h4 id="模块介绍"><a href="#模块介绍" class="headerlink" title="模块介绍"></a>模块介绍</h4><p><strong>存储：</strong><br>采用int类型的值存储人数N，初始密码K<br>采用结构体数组存储每个人的编号personNo、密码<br>personKey和未离开的人数personNum</p>
+<p><strong>实现：</strong><br>循环遍历数组的每个元素，符合条件的元素输出，直<br>至数组中只有一个有效元素，再输出这个元素</p>
+<hr>
+<h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#define NUM_MAX 100</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;用结构体数组存放参与游戏的人的信息</span><br><span class="line">struct person&#123;</span><br><span class="line">    int personNo[NUM_MAX];</span><br><span class="line">    int personKey[NUM_MAX];</span><br><span class="line">    int personNum;</span><br><span class="line">&#125;person;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int N,K,i &#x3D; 0;</span><br><span class="line">	&#x2F;&#x2F;接受用户输入的人的数量</span><br><span class="line">    cout &lt;&lt; &quot;please input the amount of people:&quot; &lt;&lt; endl;</span><br><span class="line">    cin &gt;&gt; N;</span><br><span class="line">    &#x2F;&#x2F;判断用户输入是否合法</span><br><span class="line">    if(N &gt; 100 || N &lt;&#x3D; 0)&#123;</span><br><span class="line">        cout &lt;&lt; &quot;please input the range of number is 1 to 100 !&quot; &lt;&lt; endl;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">	&#x2F;&#x2F;根据用户输入的信息初始化结构体数组</span><br><span class="line">    for(;i &lt; N;i ++)&#123;</span><br><span class="line">        cout &lt;&lt; &quot;please input the &quot; &lt;&lt; i + 1 &lt;&lt; &quot; person&#39;s key:&quot; &lt;&lt; endl;</span><br><span class="line">        cin &gt;&gt; person.personKey[i];</span><br><span class="line"></span><br><span class="line">        person.personNo[i] &#x3D; i + 1;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    person.personNum &#x3D; N;</span><br><span class="line">	&#x2F;&#x2F;接受用户输入的初始密码</span><br><span class="line">    cout &lt;&lt; &quot;please input the primitive key:&quot; &lt;&lt; endl;</span><br><span class="line">    cin &gt;&gt; K;</span><br><span class="line"></span><br><span class="line">    int counts &#x3D; 1;</span><br><span class="line">    i &#x3D; 0;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;剩下一人时退出循环</span><br><span class="line">    while(person.personNum !&#x3D; 1)&#123;</span><br><span class="line">    &#x2F;&#x2F;报的号码与密码一致并且这个人还未退出游戏时，此人离开游戏，密码为此人密码，标志置零。人数自减一，从1开始报数</span><br><span class="line">        if(counts &#x3D;&#x3D; K &amp;&amp; person.personNo[i] !&#x3D; 0)&#123;</span><br><span class="line">            cout &lt;&lt; &quot;the person&#39;s No left is: &quot; &lt;&lt; person.personNo[i] &lt;&lt;endl;</span><br><span class="line">            K &#x3D; person.personKey[i];</span><br><span class="line">            person.personNo[i] &#x3D; 0;</span><br><span class="line">            person.personNum --;</span><br><span class="line">            counts &#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">&#x2F;&#x2F;报的号码与密码不一样并且此人还未退出游戏时，继续报数</span><br><span class="line">        else if(person.personNo[i] !&#x3D; 0)&#123;</span><br><span class="line">            counts ++;</span><br><span class="line">        &#125;</span><br><span class="line">&#x2F;&#x2F;控制报数循环进行</span><br><span class="line">        i &#x3D; (i + 1) % N;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    i &#x3D; 0;</span><br><span class="line">&#x2F;&#x2F;依据标志判断此人是否是最后剩下的人</span><br><span class="line">    for(;i &lt; N;i ++)&#123;</span><br><span class="line">        if(person.personNo[i] !&#x3D; 0)&#123;</span><br><span class="line">            cout &lt;&lt; &quot;Last one is: &quot; &lt;&lt; person.personNo[i] &lt;&lt;endl;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="测试样例"><a href="#测试样例" class="headerlink" title="测试样例"></a>测试样例</h4><p>1.personNum最小值：<br><img src="https://img-blog.csdnimg.cn/20200330153119951.png" alt="test1"></p>
+<p>2.Illegal input：</p>
+<p><img src="https://img-blog.csdnimg.cn/2020033015313590.png" alt="test2"><br><img src="https://img-blog.csdnimg.cn/20200330153155651.png" alt="test3"></p>
+<p>3.用例1：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200330153213536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="test4">)<img src="https://img-blog.csdnimg.cn/20200330153234966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="test5"></p>
+<p>用例2：<br><img src="https://img-blog.csdnimg.cn/20200330153255196.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="test6"></p>
+<p>用例3：<br><img src="https://img-blog.csdnimg.cn/20200330153311920.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="test7"></p>
+<hr>
+<h3 id="采用链表实现"><a href="#采用链表实现" class="headerlink" title="采用链表实现"></a>采用链表实现</h3><p><em>由于篇幅的原因，此处只粘贴源代码读者可自行测试（笔者亲测可行，如果发现问题请在评论区指出或者私信笔者，笔者将感激不尽）</em><br><br></p>
+<h4 id="源代码-1"><a href="#源代码-1" class="headerlink" title="源代码"></a>源代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;malloc.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;指针节点结构体数组</span><br><span class="line">typedef struct linkNode&#123;</span><br><span class="line">    int personNo;</span><br><span class="line">    int personKey;</span><br><span class="line">    linkNode* next;</span><br><span class="line">    linkNode* pre;</span><br><span class="line">&#125;node,*Link;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;创建双向的课循环的链表</span><br><span class="line">Link createLink(int n)&#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;h设置为链表的头指针，然后执行相应的初始化</span><br><span class="line">    node* h &#x3D; (node*)malloc(sizeof(node));</span><br><span class="line">    h -&gt;next &#x3D; NULL;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;创建链表时应该先创建一个始终指向链表末尾的指针，并且这个指针目前应该</span><br><span class="line">    &#x2F;&#x2F;指向头指针的,所以初始化的时候应该将头指针的地址赋值给末尾指针r</span><br><span class="line">    node* r;</span><br><span class="line">    r &#x3D; h;</span><br><span class="line"></span><br><span class="line">    for(int i &#x3D; 0;i &lt; n;i ++)&#123;</span><br><span class="line">        &#x2F;&#x2F;这里为新的节点申请内存空间</span><br><span class="line">        node* n &#x3D; (node*)malloc(sizeof(node));</span><br><span class="line">        &#x2F;&#x2F;给新的节点赋值</span><br><span class="line">        n -&gt;personNo &#x3D; i + 1;</span><br><span class="line">        &#x2F;&#x2F;输入每个人的key</span><br><span class="line">        cout &lt;&lt; &quot;please input the &quot; &lt;&lt; i + 1 &lt;&lt; &quot; person&#39;s key:&quot; &lt;&lt; endl;</span><br><span class="line">        cin &gt;&gt; n -&gt;personKey;</span><br><span class="line">        &#x2F;&#x2F;新的节点此时应该是链表的最后一个节点，所以它的next指针应该指向空</span><br><span class="line">        n -&gt;next &#x3D; h -&gt;next;</span><br><span class="line">        &#x2F;&#x2F;新节点的pre指针指向上一个元素</span><br><span class="line">        n -&gt;pre &#x3D; r;</span><br><span class="line">        &#x2F;&#x2F;现在将尾指针的next指针指向这个新的节点，也就是将这两个节点连接起来</span><br><span class="line">        r -&gt;next &#x3D; n;</span><br><span class="line">        &#x2F;&#x2F;最后，再将尾指针r指向这个新的节点</span><br><span class="line">        r &#x3D; n;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;双循环链表</span><br><span class="line">    h-&gt;next-&gt;pre &#x3D; r;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;循环结束后，返回这个链表的头指针h即可</span><br><span class="line">    return h;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">      int N,K;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;please input the amount of people:&quot; &lt;&lt; endl;</span><br><span class="line">    cin &gt;&gt; N;</span><br><span class="line"></span><br><span class="line">    if(N &lt;&#x3D;0)</span><br><span class="line">        cout &lt;&lt; &quot;your input is illegal！&quot; &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    Link L &#x3D; createLink(N);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;please input the primitive key:&quot; &lt;&lt; endl;</span><br><span class="line">    cin &gt;&gt; K;</span><br><span class="line"></span><br><span class="line">    int counts &#x3D; 1;</span><br><span class="line"></span><br><span class="line">    node* t &#x3D; L -&gt;next;</span><br><span class="line">    node * p &#x3D; L -&gt;next;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;剩余人数为1时退出循环</span><br><span class="line">    while( N !&#x3D; 1)&#123;</span><br><span class="line">        if(counts &#x3D;&#x3D; K)&#123;</span><br><span class="line">            if(p -&gt;personNo &#x3D;&#x3D; t -&gt;personNo)&#123;</span><br><span class="line">                t &#x3D; p -&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            cout &lt;&lt; &quot;the No of person&#39;s left: &quot; &lt;&lt; p-&gt;personNo &lt;&lt; endl;</span><br><span class="line">            K &#x3D; p -&gt;personKey;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            node* s &#x3D; p;</span><br><span class="line"></span><br><span class="line">            s -&gt;pre -&gt;next &#x3D; s-&gt;next;</span><br><span class="line">            s -&gt;next -&gt;pre &#x3D; s-&gt;pre;</span><br><span class="line">            &#x2F;&#x2F;最后释放被删除节点的空间就行</span><br><span class="line">            free(s);</span><br><span class="line"></span><br><span class="line">            counts &#x3D; 1;</span><br><span class="line">            N --;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        counts ++;</span><br><span class="line"></span><br><span class="line">        p &#x3D; p -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;the last one:&quot; &lt;&lt; t -&gt;personNo &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/31/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -657,6 +950,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">-编辑器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">语法</a>
               </li>
             
             <div class="clearfix"></div>
