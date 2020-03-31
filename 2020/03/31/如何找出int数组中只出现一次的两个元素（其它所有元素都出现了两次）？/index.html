@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 算法 | Hexo</title>
+  <title>如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？ | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/index.html">
+  <meta name="description" content="如何找出int数组中只出现一次的两个元素？ 问题描述在一个int类型的数组中除有两个元素各出现了一次外，其它元素都出现了两次，最好能保证最好的时空效率。  算法一回溯算法： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#include &lt;iostream&gt;usi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？">
+<meta property="og:url" content="http://yoursite.com/2020/03/31/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BAint%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%83%E7%B4%A0%EF%BC%88%E5%85%B6%E5%AE%83%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E9%83%BD%E5%87%BA%E7%8E%B0%E4%BA%86%E4%B8%A4%E6%AC%A1%EF%BC%89%EF%BC%9F/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="如何找出int数组中只出现一次的两个元素？ 问题描述在一个int类型的数组中除有两个元素各出现了一次外，其它元素都出现了两次，最好能保证最好的时空效率。  算法一回溯算法： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#include &lt;iostream&gt;usi">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200330140155338.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200330140725722.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200330140858375.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200330144347453.png">
+<meta property="article:published_time" content="2020-03-31T05:04:39.000Z">
+<meta property="article:modified_time" content="2020-03-31T05:05:44.459Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200330140155338.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,36 +161,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/31/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BAint%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%83%E7%B4%A0%EF%BC%88%E5%85%B6%E5%AE%83%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E9%83%BD%E5%87%BA%E7%8E%B0%E4%BA%86%E4%B8%A4%E6%AC%A1%EF%BC%89%EF%BC%9F/" class="archive-article-date">
+
+        
+        <a href="/2020/03/31/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BAint%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%83%E7%B4%A0%EF%BC%88%E5%85%B6%E5%AE%83%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E9%83%BD%E5%87%BA%E7%8E%B0%E4%BA%86%E4%B8%A4%E6%AC%A1%EF%BC%89%EF%BC%9F/" class="archive-article-date">
   	<time datetime="2020-03-31T05:04:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/31/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BAint%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%83%E7%B4%A0%EF%BC%88%E5%85%B6%E5%AE%83%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E9%83%BD%E5%87%BA%E7%8E%B0%E4%BA%86%E4%B8%A4%E6%AC%A1%EF%BC%89%EF%BC%9F/">如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="如何找出int数组中只出现一次的两个元素？"><a href="#如何找出int数组中只出现一次的两个元素？" class="headerlink" title="如何找出int数组中只出现一次的两个元素？"></a>如何找出int数组中只出现一次的两个元素？</h1><p><br><br></p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在一个int类型的数组中除有两个元素各出现了一次外，其它元素都出现了两次，最好能保证最好的时空效率。</p>
+<hr>
+<h3 id="算法一"><a href="#算法一" class="headerlink" title="算法一"></a><em>算法一</em></h3><p>回溯算法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    int len &#x3D; 0;</span><br><span class="line">    &#x2F;&#x2F;接受用户输入的数组长度</span><br><span class="line">    cout &lt;&lt; &quot;please input the array length: &quot; ;</span><br><span class="line">    cin &gt;&gt; len;</span><br><span class="line"></span><br><span class="line">    int a[len];</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;接受用户输入的数组元素</span><br><span class="line">    cout &lt;&lt; &quot;please the array&#39;s elements:&quot; &lt;&lt; endl;</span><br><span class="line">    for(int i &#x3D; 0;i &lt; len;i++)&#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    int temp &#x3D; 0;&#x2F;&#x2F;正在检测的数组元素下标</span><br><span class="line">    int i &#x3D; 0;&#x2F;&#x2F;记录待检测数组元素下标</span><br><span class="line"></span><br><span class="line">    while(temp &lt; len)&#123;</span><br><span class="line">		&#x2F;*如果temp元素与i相等并且temp不等于i（因为初始值中temp &#x3D; i）</span><br><span class="line">		或者temp元素已经检测过*&#x2F;</span><br><span class="line">        if((a[temp] &#x3D;&#x3D; a[i] &amp;&amp; temp !&#x3D; i) || a[temp] &#x3D;&#x3D; -1)&#123;</span><br><span class="line">            &#x2F;*标记已经检测过的元素，这个标记是int数组中被限定输入的值</span><br><span class="line">            读者可以根据需要指定，这里为了方便说明采用‘-1’标记*&#x2F;</span><br><span class="line">            a[temp] &#x3D; -1;</span><br><span class="line">            a[i] &#x3D; -1;</span><br><span class="line">            i &#x3D; ++temp;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;i大于数组长度后，表示正在检测的元素只出现了一次</span><br><span class="line">        else if (i &gt;&#x3D; len)&#123;</span><br><span class="line">            cout &lt;&lt; a[temp] &lt;&lt; &quot; &quot;;</span><br><span class="line">            i &#x3D; ++temp;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;不满足上述分支条件，i指向下一个元素</span><br><span class="line">        else</span><br><span class="line">            i ++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<hr>
+<p><strong>测试结果：</strong><br><br><br><em>test1:</em><br><img src="https://img-blog.csdnimg.cn/20200330140155338.png" alt="result1"><br><em>test2:</em><br><img src="https://img-blog.csdnimg.cn/20200330140725722.png" alt="result2"><br><em>test3:</em><br><img src="https://img-blog.csdnimg.cn/20200330140858375.png" alt="result3"></p>
+<hr>
+<p><strong>评价：</strong></p>
+<p>空间复杂度为O(1)，时间复杂度上大于 O(n)小于等于O(n^2),<br>空间上达到要求，时间上未达到要求，需要改进算法。</p>
+<hr>
+<h3 id="算法二"><a href="#算法二" class="headerlink" title="算法二"></a><em>算法二</em></h3><p>位运算算法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F;初始化待检测数组</span><br><span class="line">    int arr[8] &#x3D; &#123;2,5,5,2,3,6,4,6&#125;;</span><br><span class="line"></span><br><span class="line">    int num &#x3D; 0;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;找出数组中只出现过一次的元素的异或值</span><br><span class="line">    for(int i &#x3D; 0;i &lt; 8;i ++)&#123;</span><br><span class="line">        num &#x3D; num ^ arr[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;num:&quot; &lt;&lt; num &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    int temp &#x3D; 1;</span><br><span class="line">	&#x2F;*从最低位开始找出两个元素第一次不同的位，即num中从最低位第一次出现1的地方*&#x2F;</span><br><span class="line">    while((temp &amp; num) &#x3D;&#x3D; 0)&#123;</span><br><span class="line">        temp &lt;&lt;&#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;temp:&quot; &lt;&lt; temp &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    int num1 &#x3D; 0;</span><br><span class="line">    int num2 &#x3D; 0;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;用按位与运算将这两个数分开，分别按位异或，（一个数自己与自己异或为0）</span><br><span class="line">    for(int i &#x3D; 0;i &lt; 8;i ++)&#123;</span><br><span class="line">        if((temp &amp; arr[i]) &#x3D;&#x3D; 0)</span><br><span class="line">            num1 ^&#x3D; arr[i];</span><br><span class="line">        else</span><br><span class="line">            num2 ^&#x3D; arr[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;num1:&quot; &lt;&lt; num1 &lt;&lt;endl;</span><br><span class="line">    cout &lt;&lt; &quot;num2:&quot; &lt;&lt; num2 &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>测试结果：</strong></p>
+<br>
+
+<p><em>test1:</em><br><img src="https://img-blog.csdnimg.cn/20200330144347453.png" alt="result1"><br>读者可以自行设计测试样例进行测试</p>
+<p><strong>评价：</strong><br>由于只遍历了一遍数组的元素，故时间复杂度为o(n)<br>空间复杂度为o(1),符合题目要求</p>
+<p><br><br><br>—-end—</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -195,61 +246,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/31/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BAint%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%83%E7%B4%A0%EF%BC%88%E5%85%B6%E5%AE%83%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E9%83%BD%E5%87%BA%E7%8E%B0%E4%BA%86%E4%B8%A4%E6%AC%A1%EF%BC%89%EF%BC%9F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/31/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8%E4%B9%8B%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/" class="archive-article-date">
-  	<time datetime="2020-03-31T04:49:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/31/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8%E4%B9%8B%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">蒙特卡洛算法应用之计算圆周率</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/31/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8%E4%B9%8B%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/">蒙特卡洛算法应用之计算圆周率</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -272,9 +368,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
