@@ -1203,7 +1203,7 @@ html {
 }
 
 .article-entry .highlight .line {
-	color: #fff;
+	color: rgb(182, 182, 182);
 	min-height: 19px
 }
 
