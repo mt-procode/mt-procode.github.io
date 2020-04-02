@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？ | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如何找出int数组中只出现一次的两个元素？ 问题描述在一个int类型的数组中除有两个元素各出现了一次外，其它元素都出现了两次，最好能保证最好的时空效率。  算法一回溯算法： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#include &lt;iostream&gt;usi">
+  <meta name="description" content="如何找出int数组中只出现一次的两个元素？ 问题描述在一个int类型的数组中除有两个元素各出现了一次外，其它元素都出现了两次，最好能保证最好的时空效率。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？">
 <meta property="og:url" content="http://yoursite.com/2020/03/31/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BAint%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%83%E7%B4%A0%EF%BC%88%E5%85%B6%E5%AE%83%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E9%83%BD%E5%87%BA%E7%8E%B0%E4%BA%86%E4%B8%A4%E6%AC%A1%EF%BC%89%EF%BC%9F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="如何找出int数组中只出现一次的两个元素？ 问题描述在一个int类型的数组中除有两个元素各出现了一次外，其它元素都出现了两次，最好能保证最好的时空效率。  算法一回溯算法： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#include &lt;iostream&gt;usi">
+<meta property="og:description" content="如何找出int数组中只出现一次的两个元素？ 问题描述在一个int类型的数组中除有两个元素各出现了一次外，其它元素都出现了两次，最好能保证最好的时空效率。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200330140155338.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200330140725722.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200330140858375.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200330144347453.png">
 <meta property="article:published_time" content="2020-03-31T05:04:39.000Z">
-<meta property="article:modified_time" content="2020-03-31T05:05:44.459Z">
+<meta property="article:modified_time" content="2020-04-02T03:48:08.170Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="C++">
 <meta property="article:tag" content="算法">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200330140155338.png">
   
@@ -183,6 +183,8 @@
       
         <h1 id="如何找出int数组中只出现一次的两个元素？"><a href="#如何找出int数组中只出现一次的两个元素？" class="headerlink" title="如何找出int数组中只出现一次的两个元素？"></a>如何找出int数组中只出现一次的两个元素？</h1><p><br><br></p>
 <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在一个int类型的数组中除有两个元素各出现了一次外，其它元素都出现了两次，最好能保证最好的时空效率。</p>
+<a id="more"></a>
+
 <hr>
 <h3 id="算法一"><a href="#算法一" class="headerlink" title="算法一"></a><em>算法一</em></h3><p>回溯算法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    int len &#x3D; 0;</span><br><span class="line">    &#x2F;&#x2F;接受用户输入的数组长度</span><br><span class="line">    cout &lt;&lt; &quot;please input the array length: &quot; ;</span><br><span class="line">    cin &gt;&gt; len;</span><br><span class="line"></span><br><span class="line">    int a[len];</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;接受用户输入的数组元素</span><br><span class="line">    cout &lt;&lt; &quot;please the array&#39;s elements:&quot; &lt;&lt; endl;</span><br><span class="line">    for(int i &#x3D; 0;i &lt; len;i++)&#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    int temp &#x3D; 0;&#x2F;&#x2F;正在检测的数组元素下标</span><br><span class="line">    int i &#x3D; 0;&#x2F;&#x2F;记录待检测数组元素下标</span><br><span class="line"></span><br><span class="line">    while(temp &lt; len)&#123;</span><br><span class="line">		&#x2F;*如果temp元素与i相等并且temp不等于i（因为初始值中temp &#x3D; i）</span><br><span class="line">		或者temp元素已经检测过*&#x2F;</span><br><span class="line">        if((a[temp] &#x3D;&#x3D; a[i] &amp;&amp; temp !&#x3D; i) || a[temp] &#x3D;&#x3D; -1)&#123;</span><br><span class="line">            &#x2F;*标记已经检测过的元素，这个标记是int数组中被限定输入的值</span><br><span class="line">            读者可以根据需要指定，这里为了方便说明采用‘-1’标记*&#x2F;</span><br><span class="line">            a[temp] &#x3D; -1;</span><br><span class="line">            a[i] &#x3D; -1;</span><br><span class="line">            i &#x3D; ++temp;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;i大于数组长度后，表示正在检测的元素只出现了一次</span><br><span class="line">        else if (i &gt;&#x3D; len)&#123;</span><br><span class="line">            cout &lt;&lt; a[temp] &lt;&lt; &quot; &quot;;</span><br><span class="line">            i &#x3D; ++temp;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;不满足上述分支条件，i指向下一个元素</span><br><span class="line">        else</span><br><span class="line">            i ++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -236,11 +238,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
@@ -447,15 +449,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
