@@ -6,15 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mt-procode.github.io">
-  <title>Tag: C++ | mt-procode&#39;s blog</title>
+  <title>商贩卖pig和电话号码组合两类简单问题的求解 | mt-procode&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="mt-procode&#39;s blog">
-<meta property="og:url" content="https://mt-procode.github.io/tags/C/page/2/index.html">
+  <meta name="description" content="问题描述（1）商贩卖pig一个商贩养了一批猪，有一天赶着pig去村庄卖，每经过一个村庄就卖掉所有pig的一半又一只。这样他经过了 7 个村子后还剩 2 只pig，请计算并输出他一共养了多少只pig？输出经过每个村子卖出多少只pig？ （2）电话号码对应的字符组合在电话或者手机上，一个数字比如 2 对应着字母 ABC，7 对应着PQRS。那么数字串 27 所对应的字符的可能组合就有 3*4&#x3D;12 种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="商贩卖pig和电话号码组合两类简单问题的求解">
+<meta property="og:url" content="https://mt-procode.github.io/2020/04/28/%E5%95%86%E8%B4%A9%E5%8D%96pig%E5%92%8C%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%BB%84%E5%90%88%E4%B8%A4%E7%B1%BB%E7%AE%80%E5%8D%95%E9%97%AE%E9%A2%98%E7%9A%84%E6%B1%82%E8%A7%A3/index.html">
 <meta property="og:site_name" content="mt-procode&#39;s blog">
+<meta property="og:description" content="问题描述（1）商贩卖pig一个商贩养了一批猪，有一天赶着pig去村庄卖，每经过一个村庄就卖掉所有pig的一半又一只。这样他经过了 7 个村子后还剩 2 只pig，请计算并输出他一共养了多少只pig？输出经过每个村子卖出多少只pig？ （2）电话号码对应的字符组合在电话或者手机上，一个数字比如 2 对应着字母 ABC，7 对应着PQRS。那么数字串 27 所对应的字符的可能组合就有 3*4&#x3D;12 种">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200428181929833.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200428183501285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020042818351076.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200428183517609.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200428183526595.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200428183534110.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200428183540866.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200428183550102.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200428183558194.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-04-28T10:39:43.000Z">
+<meta property="article:modified_time" content="2020-04-28T10:41:13.376Z">
 <meta property="article:author" content="mt-procode">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200428181929833.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="mt-procode&#39;s blog" type="application/atom+xml">
   
@@ -148,36 +164,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-商贩卖pig和电话号码组合两类简单问题的求解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/31/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BAint%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%83%E7%B4%A0%EF%BC%88%E5%85%B6%E5%AE%83%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E9%83%BD%E5%87%BA%E7%8E%B0%E4%BA%86%E4%B8%A4%E6%AC%A1%EF%BC%89%EF%BC%9F/" class="archive-article-date">
-  	<time datetime="2020-03-31T05:04:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/31/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BAint%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%83%E7%B4%A0%EF%BC%88%E5%85%B6%E5%AE%83%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E9%83%BD%E5%87%BA%E7%8E%B0%E4%BA%86%E4%B8%A4%E6%AC%A1%EF%BC%89%EF%BC%9F/">如何找出int数组中只出现一次的两个元素（其它所有元素都出现了两次）？</a>
+    <h1 class="article-title" itemprop="name">
+      商贩卖pig和电话号码组合两类简单问题的求解
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/04/28/%E5%95%86%E8%B4%A9%E5%8D%96pig%E5%92%8C%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%BB%84%E5%90%88%E4%B8%A4%E7%B1%BB%E7%AE%80%E5%8D%95%E9%97%AE%E9%A2%98%E7%9A%84%E6%B1%82%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2020-04-28T10:39:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p><strong>（1）商贩卖pig</strong><br>一个商贩养了一批猪，有一天赶着pig去村庄卖，每经过一个村庄就卖掉所有pig的一半又一只。这样他经过了 7 个村子后还剩 2 只pig，请计算并输出他一共养了多少只pig？输出经过每个村子卖出多少只pig？</p>
+<p><strong>（2）电话号码对应的字符组合</strong><br>在电话或者手机上，一个数字比如 2 对应着字母 ABC，7 对应着PQRS。那么数字串 27 所对应的字符的可能组合就有 3*4=12 种（如AP，BR 等）。现在输入一个 3 到 11 位长的电话号码，请打印出这个电话号码所对应的字符的所有可能组合和组合数。</p>
+<a id="more"></a>
+
+<hr>
+<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p><em>注：此处只对两个函数进行分析，且函数标号与标题一致</em></p>
+<ul>
+<li><p>Void useFun1()<br>输入：用户需要输入商贩到第几个村庄后（vnum）还剩下多少只pig（pnum）；<br>输出：到第几个村庄时有多少只pig，卖掉了多少只pig，最后pig总数；<br>主要处理过程：利用递归函数int fun1(int vnum,int pnum)计算需要输出                    的数据。</p>
+</li>
+<li><p>Void useFun2()<br>输入：用户只需要输入电话号码即可（标准输入为3-11）位；<br>输出：输入的号码对应九宫格拼音输入共有多少种组合方式，并输出这些组           合方式；<br>主要处理过程：利用递归函数<br>void fun2(int num[],int pos[],int c,int len)计算组合                    方式数目并输出这些组合方式。<br>在主方法中调用相关函数满足用户需求即可</p>
+</li>
+</ul>
+<hr>
+<h3 id="流程设计"><a href="#流程设计" class="headerlink" title="流程设计"></a>流程设计</h3><p><img src="https://img-blog.csdnimg.cn/20200428181929833.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="process"></p>
+<hr>
+<h3 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;strings.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//存放每个数字对应的字母组合</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> ch[<span class="number">10</span>][<span class="number">5</span>] = &#123;</span><br><span class="line">        &#123;&#125;, <span class="comment">//0</span></span><br><span class="line">        &#123;&#125;,  <span class="comment">//1</span></span><br><span class="line">        &#123;<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>&#125;,  <span class="comment">//2</span></span><br><span class="line">        &#123;<span class="string">'D'</span>,<span class="string">'E'</span>,<span class="string">'F'</span>&#125;,  <span class="comment">//3</span></span><br><span class="line">        &#123;<span class="string">'G'</span>,<span class="string">'H'</span>,<span class="string">'I'</span>&#125;,  <span class="comment">//4</span></span><br><span class="line">        &#123;<span class="string">'J'</span>,<span class="string">'K'</span>,<span class="string">'L'</span>&#125;,  <span class="comment">//5</span></span><br><span class="line">        &#123;<span class="string">'M'</span>,<span class="string">'N'</span>,<span class="string">'O'</span>&#125;,  <span class="comment">//6</span></span><br><span class="line">        &#123;<span class="string">'P'</span>,<span class="string">'Q'</span>,<span class="string">'R'</span>,<span class="string">'S'</span>&#125;,  <span class="comment">//7</span></span><br><span class="line">        &#123;<span class="string">'T'</span>,<span class="string">'U'</span>,<span class="string">'V'</span>&#125;,  <span class="comment">//8</span></span><br><span class="line">        &#123;<span class="string">'W'</span>,<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>&#125;  <span class="comment">//9</span></span><br><span class="line">    &#125;;</span><br><span class="line"><span class="comment">//存放每个数字对应的字母的个数</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> total[] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现第一个问题的递归函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun1</span><span class="params">(<span class="keyword">int</span> vnum,<span class="keyword">int</span> pnum)</span></span>;</span><br><span class="line"><span class="comment">//负责使用上述函数，保证和用户良好的交互</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">useFun1</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现第二个问题的递归函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun2</span><span class="params">(<span class="keyword">int</span> num[],<span class="keyword">int</span> pos[],<span class="keyword">int</span> c,<span class="keyword">int</span> len)</span></span>; </span><br><span class="line"><span class="comment">//实现第二个问题的循环函数，此函数与上个函数功能相同</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun2x</span><span class="params">(<span class="keyword">int</span> num[],<span class="keyword">int</span> pos[],<span class="keyword">int</span> c,<span class="keyword">int</span> len)</span></span>;</span><br><span class="line"><span class="comment">//负责调用上述两个函数之一</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">useFun2</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    system(<span class="string">"title ps&amp;pnc"</span>);<span class="comment">//设置控制台标题</span></span><br><span class="line">    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);</span><br><span class="line">    COORD size_x;</span><br><span class="line">    size_x.X = <span class="number">61</span>;</span><br><span class="line">    size_x.Y = <span class="number">200</span>;</span><br><span class="line">    SetConsoleScreenBufferSize(hOut,size_x);<span class="comment">//设置字缓冲区大小</span></span><br><span class="line">    SMALL_RECT rc;</span><br><span class="line">    rc.Left = <span class="number">0</span>;</span><br><span class="line">    rc.Top = <span class="number">0</span>;</span><br><span class="line">    rc.Right = <span class="number">60</span>;</span><br><span class="line">    rc.Bottom = <span class="number">15</span>;</span><br><span class="line">    SetConsoleWindowInfo(hOut, TRUE, &amp;rc);<span class="comment">//设置窗口大小</span></span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        system(<span class="string">"cls"</span>);</span><br><span class="line">        <span class="keyword">char</span> re;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"\t(1) calculation the amount of pigs"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt;<span class="string">"\t(2) calculation the combination of phone number"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt;<span class="string">"\t(0) exit"</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"\tplease input digit to select function: "</span>;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; re;</span><br><span class="line">        <span class="keyword">if</span>(re == <span class="string">'1'</span>)</span><br><span class="line">        useFun1();</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(re == <span class="string">'2'</span>)</span><br><span class="line">        useFun2();</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(re == <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"please input right digit!"</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            system(<span class="string">"pause"</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">while</span>(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun1</span><span class="params">(<span class="keyword">int</span> vnum,<span class="keyword">int</span> pnum,<span class="keyword">int</span>&amp; f)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(vnum == <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"no:"</span> &lt;&lt;f &lt;&lt; <span class="string">" have: "</span> &lt;&lt; (pnum+<span class="number">1</span>)*<span class="number">2</span> &lt;&lt;<span class="string">" sale:"</span> &lt;&lt; <span class="number">4</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> (pnum+<span class="number">1</span>)*<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> re = fun1(--vnum,pnum,f);</span><br><span class="line">    <span class="keyword">int</span> sum = (re + <span class="number">1</span>) *<span class="number">2</span>;</span><br><span class="line">    f --;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"no:"</span> &lt;&lt; f &lt;&lt; <span class="string">" have: "</span> &lt;&lt; sum &lt;&lt; <span class="string">" sale:"</span> &lt;&lt; sum - re &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">useFun1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    system(<span class="string">"cls"</span>);</span><br><span class="line">    <span class="keyword">int</span> temp,flag;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"please input village's no and amount(apart in space):"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; flag &gt;&gt; temp;</span><br><span class="line">    <span class="keyword">int</span> sum = fun1(flag,temp,flag);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"total: "</span> &lt;&lt; sum &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">useFun2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    system(<span class="string">"cls"</span>);</span><br><span class="line">    <span class="keyword">char</span> tel[<span class="number">12</span>];</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"please input telephone number: "</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; tel;</span><br><span class="line">    <span class="keyword">int</span> lenc = <span class="built_in">strlen</span>(tel);</span><br><span class="line">    <span class="keyword">int</span> numc[lenc];<span class="comment">//保存输入的非（‘0’和‘1’）对应的数字</span></span><br><span class="line">    <span class="keyword">int</span> posc[lenc];<span class="comment">//保存各个数字当前应输出的字母的位置</span></span><br><span class="line">    <span class="keyword">int</span> counts = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//这里获取‘0’和‘1’这样的字符有多少个</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt; lenc;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(tel[i] == <span class="string">'0'</span> || tel[i] == <span class="string">'1'</span>)</span><br><span class="line">            counts++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将不是‘0’或者‘1’的数字字符放入numc数组中</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>,j = <span class="number">0</span>;i &lt; lenc;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(tel[i] != <span class="string">'0'</span> &amp;&amp; tel[i] != <span class="string">'1'</span>)&#123;</span><br><span class="line">            numc[j] = tel[i] - <span class="string">'0'</span>;</span><br><span class="line">            posc[j++] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    lenc = lenc - counts;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//计算组合数目</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i &lt; lenc;i++)</span><br><span class="line">    temp *= total[numc[i]];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"total: "</span> &lt;&lt; temp &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt;<span class="string">"possible combination:"</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    fun2(numc,posc,<span class="number">0</span>,lenc);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun2</span><span class="params">(<span class="keyword">int</span> num[],<span class="keyword">int</span> pos[],<span class="keyword">int</span> c,<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(c == len)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt; len;i++)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; ch[num[i]][pos[i]];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(pos[c] = <span class="number">0</span>; pos[c] &lt; total[num[c]];pos[c]++)&#123;</span><br><span class="line">        fun2(num,pos,c+<span class="number">1</span>,len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun2x</span><span class="params">(<span class="keyword">int</span> num[],<span class="keyword">int</span> pos[],<span class="keyword">int</span> c,<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; ch[num[i]][pos[i]];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">int</span> k=len<span class="number">-1</span>;</span><br><span class="line">			<span class="keyword">while</span>(k&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">				<span class="keyword">if</span>(pos[k]&lt;total[num[k]]<span class="number">-1</span>)&#123;</span><br><span class="line">					pos[k]++;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					pos[k]=<span class="number">0</span>;</span><br><span class="line">					k--;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(k&lt;<span class="number">0</span>)</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>Menu测试<br><img src="https://img-blog.csdnimg.cn/20200428183501285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>Function1测试<br><img src="https://img-blog.csdnimg.cn/2020042818351076.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200428183517609.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>Function2测试</p>
+<p><img src="https://img-blog.csdnimg.cn/20200428183526595.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200428183534110.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200428183540866.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200428183550102.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>Exit测试<br><img src="https://img-blog.csdnimg.cn/20200428183558194.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzQ1Njg1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>读者可以自行设计测试样例</p>
+<hr>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,7 +251,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -201,86 +259,121 @@
         		<li class="article-tag-list-item">
         			<a href="/categories/C//" class="article-tag-list-link color4">C++</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/C/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mt-procode.github.io/2020/04/28/%E5%95%86%E8%B4%A9%E5%8D%96pig%E5%92%8C%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%BB%84%E5%90%88%E4%B8%A4%E7%B1%BB%E7%AE%80%E5%8D%95%E9%97%AE%E9%A2%98%E7%9A%84%E6%B1%82%E8%A7%A3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/31/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8%E4%B9%8B%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/" class="archive-article-date">
-  	<time datetime="2020-03-31T04:49:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/22/%E5%8D%81%E8%BF%9B%E5%88%B6%E5%90%91%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E5%8C%96%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">十进制向二进制转化的两种方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/31/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8%E4%B9%8B%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/">蒙特卡洛算法应用 --- 估算圆周率</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/C//" class="article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/C/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题分析"><span class="toc-number">2.</span> <span class="toc-text">问题分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#流程设计"><span class="toc-number">3.</span> <span class="toc-text">流程设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源代码"><span class="toc-number">4.</span> <span class="toc-text">源代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">5.</span> <span class="toc-text">测试</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/C/">&amp;laquo; Prev</a><a class="page-number" href="/tags/C/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -306,9 +399,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
