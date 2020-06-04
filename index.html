@@ -161,6 +161,192 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C实现矩阵乘法计算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2020/06/04/C%E5%AE%9E%E7%8E%B0%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%AE%A1%E7%AE%97/">C实现矩阵乘法计算</a>
+    </h1>
+  
+
+        
+        <a href="2020/06/04/C%E5%AE%9E%E7%8E%B0%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%AE%A1%E7%AE%97/" class="archive-article-date">
+  	<time datetime="2020-06-04T02:07:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span
+	   id="busuanzi_value_page_pv"></span>次</div>
+        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><br>	<span class="hljs-keyword">int</span> row1,column1,row2,column2;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"please the first matrix's size(row column): "</span>);<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d %d"</span>,&amp;row1,&amp;column1);<br>	<span class="hljs-keyword">int</span> arr1[<span class="hljs-number">100</span>][<span class="hljs-number">100</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br>	<span class="hljs-keyword">int</span> arr2[<span class="hljs-number">100</span>][<span class="hljs-number">100</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"please input the first matrix's elements:\n"</span>);<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;row1;i++)<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;column1;j++)<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;arr1[i][j]);<br>	<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"please the second matrix's size(row column): "</span>);<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d %d"</span>,&amp;row2,&amp;column2);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"please input the first matrix's elements:\n"</span>);<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;row2;i++)<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;column2;j++)<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;arr2[i][j]);<br>	<br>	<span class="hljs-keyword">if</span>(column1 != row2)<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"illegal data!\n"</span>);<br>	<span class="hljs-keyword">else</span>&#123;<br>		<span class="hljs-keyword">int</span> arr3[<span class="hljs-number">10</span>][<span class="hljs-number">10</span>];<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;row1;i++)<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;column2;j++)&#123;<br>			<span class="hljs-keyword">int</span> temp = <span class="hljs-number">0</span>;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> m=<span class="hljs-number">0</span>;m&lt;row2;m++)<br>			temp += arr1[i][m]*arr2[m][j];<br>			arr3[i][j] = temp;	<br>		&#125;<br>		 <br>		<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"result:\n"</span>);<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;row1;i++)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;column2;j++)<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>,arr3[i][j]);<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);	<br>		&#125;<br>			<br>	&#125;<br>	<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/C//" class="article-tag-list-link color2">C</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2020/06/04/C%E5%AE%9E%E7%8E%B0%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%AE%A1%E7%AE%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-n阶行列式计算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2020/06/04/n%E9%98%B6%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97/">n阶行列式计算</a>
+    </h1>
+  
+
+        
+        <a href="2020/06/04/n%E9%98%B6%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97/" class="archive-article-date">
+  	<time datetime="2020-06-04T02:07:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span
+	   id="busuanzi_value_page_pv"></span>次</div>
+        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">det</span><span class="hljs-params">(<span class="hljs-keyword">double</span>* a, <span class="hljs-keyword">int</span> N)</span><br></span>&#123;<br>    <span class="hljs-keyword">int</span> i, j, m, n, s, t, k = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">double</span> f = <span class="hljs-number">1.0</span>, c, x;<br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>; i &lt; N &amp;&amp; j &lt; N; i++, j++) &#123;<br>        <span class="hljs-keyword">if</span> (a[i * N + j] == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">for</span> (m = i + <span class="hljs-number">1</span>; m &lt; N &amp;&amp; a[m * N + j] == <span class="hljs-number">0</span>; m++)<br>            <span class="hljs-keyword">if</span> (m == N)<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">else</span><br>                <span class="hljs-keyword">for</span> (n = j; n &lt; N; n++) &#123;<br>                    c = a[i * N + n];<span class="hljs-comment">//a[i][n]</span><br>                    a[i * N + n] = a[m * N + n];<span class="hljs-comment">//a[i][n]=a[m][n]</span><br>                    a[m * N + n] = c;<span class="hljs-comment">//a[m][n]</span><br>                &#125;<br>            k = -k;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (s = N - <span class="hljs-number">1</span>; s &gt; i; s--) &#123;<br>            x = a[s * N + j];<span class="hljs-comment">//a[s][j]</span><br>            <span class="hljs-keyword">for</span> (t = j; t &lt; N; t++)<br>                a[s * N + t] -= a[i * N + t] * (x / a[i * N + j]);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; N; i++)<span class="hljs-comment">//a[i][i]</span><br>        f *= a[i * N + i];<br>    <span class="hljs-keyword">return</span> k * f;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span><br></span>&#123;<br>    <span class="hljs-keyword">int</span> i, j, n ;<br>    <span class="hljs-keyword">double</span>* a;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"请输入行列式的阶数:\n"</span>);<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;n);<br>    a = (<span class="hljs-keyword">double</span>*)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">double</span>) * n * n);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"输入%d个数:\n"</span>,n*n );<br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>        <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; n; j++)<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%lf"</span>, a + i * n + j);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"result=%g\n"</span>, det(a, n));<br>    <span class="hljs-built_in">free</span>(a);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/C//" class="article-tag-list-link color2">C</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2020/06/04/n%E9%98%B6%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-建立工资计算系统（2）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -884,184 +1070,6 @@
 
 
   
-    <article id="post-两个有序数组的合并问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2020/04/22/%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%90%88%E5%B9%B6%E9%97%AE%E9%A2%98/">两个有序数组的合并问题</a>
-    </h1>
-  
-
-        
-        <a href="2020/04/22/%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%90%88%E5%B9%B6%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-04-22T07:25:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>编写函数，将两个有序 vector 数组合并成一个新的有序 vector数组，函数原型为：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;  <span class="title">merg</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; list1,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; list2)</span></span>;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/C//" class="article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2020/04/22/%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%90%88%E5%B9%B6%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-全局变量和局部变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2020/04/22/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F/">全局变量和局部变量</a>
-    </h1>
-  
-
-        
-        <a href="2020/04/22/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F/" class="archive-article-date">
-  	<time datetime="2020-04-22T07:22:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、全局变量和局部变量的区别</p>
-<p>1、作用域：</p>
-<p>   全局变量作用于整个程序；</p>
-<p>   局部变量作用于当前“括号内部”。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/C//" class="article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2020/04/22/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><a class="extend next" rel="next" href="page/2/">Next &amp;raquo;</a>
@@ -1184,6 +1192,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
             
             <div class="clearfix"></div>
